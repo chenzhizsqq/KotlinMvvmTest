@@ -1,35 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- 一定要在这里把data的插件插入 begin-->
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- name="viewModelName"，这里就是设定绑定页面的名字 end-->
     <data>
         <variable
-            name="viewModel"
+            name="viewModelName"
             type="com.example.kotlinmvvmtest.MainViewModel" />
     </data>
+    <!-- 一定要在这里把data的插件插入 end-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
+        <!--在android:onClick="@{(v)->viewModel.onClickButton(v)}"中，设定绑定的函数-->
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="41dp"
+            android:layout_marginTop="100dp"
             android:text="Button"
-            android:onClick="@{(v)->viewModel.onClickButton(v)}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+            android:onClick="@{(v)->viewModelName.onClickButton(v)}"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--在android:text="@{viewModel.message}"中，设定绑定-->
         <TextView
-            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{viewModel.message}"
+
+            android:text="@{viewModelName.message}"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

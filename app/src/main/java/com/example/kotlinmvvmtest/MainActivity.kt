@@ -11,8 +11,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // おまじないの追加
+        // 在这里实现绑定MainViewModel
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
-        binding.viewModel = MainViewModel()
+        binding.viewModelName = MainViewModel()
     }
 }
